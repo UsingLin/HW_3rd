@@ -1,7 +1,6 @@
 import lib
 import sqlite3 as sql3
 
-
 #連線資料庫，新增電影資料表
 conn = sql3.connect("movies.db")
 cursors = conn.cursor()
@@ -26,3 +25,5 @@ while True:
     elif opt == '7':    #7. exit            ok
         conn.close()
         break
+    else:
+        print("\n無效輸入\n")
