@@ -119,7 +119,7 @@ def funtion_4(conn):
             for row in results:
                 print(f"{row[0]:{chr(12288)}<10} {row[1]:{chr(12288)}<10} {row[2]:{chr(12288)}<10} {row[3]:{chr(12288)}<10} {row[4]:{chr(12288)}<10}")
 
-            movie_id = results[0][0]
+            movie_id = results[0][0]        #註 : Line_122 ~ Line_147 參考網路上作法
 
             netitle  = input("請輸入新的電影名稱 (若不修改請直接按 Enter): ")
             nedire = input("請輸入新的導演 (若不修改請直接按 Enter): ")
@@ -127,7 +127,6 @@ def funtion_4(conn):
             neyear = input("請輸入新的上映年份 (若不修改請直接按 Enter): ")
             nerat = input("請輸入新的評分 (1.0 - 10.0) (若不修改請直接按 Enter): ")
 
-            # 生成更新語句，僅對輸入值不為空的欄位進行更新
             updates = []
             values = []
 
