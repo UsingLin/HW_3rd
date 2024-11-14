@@ -59,8 +59,12 @@ def funtion_2(conn):
             result_all = cursors.fetchall() #獲取所有資料
             print('所有資料：')
             print(type(result_all))
+
+            print(f"id{'':{chr(12288)}<3} 電影名稱{'':{chr(12288)}<6} 導演{'':{chr(12288)}<8} 類型{'':{chr(12288)}<3} 上映年份{'':{chr(12288)}<4} 評分(1.0~10.0)")
+            print("-" * 30)
+
             for i in result_all:
-                print(f"id:{i[0]:<1} \t電影名稱:{i[1]:<1} \t導演:{i[2]:<1} \t類型:{i[3]:<1} \t上映年分:{i[4]:<1} \t評分(1.0~10.0):{i[5]}")  #待處理_排版問題
+                print(f"{i[0]:{chr(12288)}<5} {i[1]:{chr(12288)}<10} {i[2]:{chr(12288)}<10} {i[3]:{chr(12288)}<5} {i[4]:{chr(12288)}<10} {i[5]}")
             break
         #印出所選資料
         elif searall == 'n' or searall == 'N':
@@ -68,10 +72,10 @@ def funtion_2(conn):
             cursors.execute("SELECT title, director, genre, year, rating FROM movies WHERE title LIKE ?", ('%' + moviemn + '%',))
             results = cursors.fetchall()
             if results:
-                print(f"{'電影名稱':<10} {'導演':<12} {'類型':<6} {'年份':<4} {'評分':<4}")
+                print(f"{'電影名稱':{chr(12288)}<10} {'導演':{chr(12288)}<10} {'類型':{chr(12288)}<10} {'年份':{chr(12288)}<10} {'評分':{chr(12288)}<10}")
                 print('-' * 40)
                 for row in results:
-                    print(f"{row[0]:<10} {row[1]:<12} {row[2]:<6} {row[3]:<4} {row[4]:<4}")
+                    print(f"{row[0]:{chr(12288)}<10} {row[1]:{chr(12288)}<10} {row[2]:{chr(12288)}<10} {row[3]:{chr(12288)}<10} {row[4]:{chr(12288)}<10}")
                 break
             else:
                 print("找不到符合條件的電影。")
@@ -110,9 +114,10 @@ def funtion_4(conn):
 
         if results:
             # 顯示查詢結果
-            print("\n電影名稱\t導演\t類型\t上映年份\t評分\n-------------------------------------------------------------------")
+            print(f"{'電影名稱':{chr(12288)}<10} {'導演':{chr(12288)}<10} {'類型':{chr(12288)}<10} {'年份':{chr(12288)}<10} {'評分':{chr(12288)}<10}")
+            print('-' * 40)
             for row in results:
-                print(f"{row[1]:<10} {row[2]:<15} {row[3]:<8} {row[4]:<8} {row[5]:<5}")
+                print(f"{row[0]:{chr(12288)}<10} {row[1]:{chr(12288)}<10} {row[2]:{chr(12288)}<10} {row[3]:{chr(12288)}<10} {row[4]:{chr(12288)}<10}")
 
             movie_id = results[0][0]
 
